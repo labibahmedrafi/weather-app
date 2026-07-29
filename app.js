@@ -70,23 +70,38 @@ function displayweatherInfo(data) {
 }
 
 function getweatherEmoji(weatherId) {
-    switch(true) {
-        case(weatherId >= 200 && weatherId < 300):
-        return "🌩";
-        case(weatherId >= 300 && weatherId < 400):
-        return "🌧";
-        case(weatherId >= 400 && weatherId < 500):
-        return "☔";
-        case(weatherId >= 500 && weatherId < 600):
-        return "❄";
-        case(weatherId >= 700 && weatherId < 800):
-        return "🌫";
-        case(weatherId === 800):
-        return "🌞";
-        case(weatherId >= 801 && weatherId < 810):
-        return "☁";
-        default: 
-        return "❓"
+    switch (true) {
+        // Thunderstorm
+        case (weatherId >= 200 && weatherId <= 232):
+            return "⛈️";
+
+        // Drizzle
+        case (weatherId >= 300 && weatherId <= 321):
+            return "🌦️";
+
+        // Rain
+        case (weatherId >= 500 && weatherId <= 531):
+            return "🌧️";
+
+        // Snow
+        case (weatherId >= 600 && weatherId <= 622):
+            return "❄️";
+
+        // Atmosphere (Mist, Fog, Smoke, etc.)
+        case (weatherId >= 701 && weatherId <= 781):
+            return "🌫️";
+
+        // Clear Sky
+        case (weatherId === 800):
+            return "☀️";
+
+        // Clouds
+        case (weatherId >= 801 && weatherId <= 804):
+            return "☁️";
+
+        // Unknown
+        default:
+            return "❓";
     }
 }
 
