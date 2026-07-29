@@ -71,6 +71,7 @@ function displayweatherInfo(data) {
 
 function getweatherEmoji(weatherId) {
     switch (true) {
+
         // Thunderstorm
         case (weatherId >= 200 && weatherId <= 232):
             return "⛈️";
@@ -79,27 +80,74 @@ function getweatherEmoji(weatherId) {
         case (weatherId >= 300 && weatherId <= 321):
             return "🌦️";
 
-        // Rain
-        case (weatherId >= 500 && weatherId <= 531):
+        // Light & Moderate Rain
+        case (weatherId >= 500 && weatherId <= 504):
             return "🌧️";
+
+        // Heavy Rain
+        case (weatherId >= 520 && weatherId <= 531):
+            return "🌧️💦";
 
         // Snow
         case (weatherId >= 600 && weatherId <= 622):
-            return "❄️";
+            return "🌨️";
 
-        // Atmosphere (Mist, Fog, Smoke, etc.)
-        case (weatherId >= 701 && weatherId <= 781):
+        // Mist
+        case (weatherId === 701):
             return "🌫️";
 
-        // Clear Sky
+        // Smoke
+        case (weatherId === 711):
+            return "💨";
+
+        // Haze
+        case (weatherId === 721):
+            return "🌁";
+
+        // Dust
+        case (weatherId === 731 || weatherId === 761):
+            return "🌪️";
+
+        // Fog
+        case (weatherId === 741):
+            return "🌁";
+
+        // Sand
+        case (weatherId === 751):
+            return "🏜️";
+
+        // Ash
+        case (weatherId === 762):
+            return "🌋";
+
+        // Squall
+        case (weatherId === 771):
+            return "💨";
+
+        // Tornado
+        case (weatherId === 781):
+            return "🌪️";
+
+        // Clear
         case (weatherId === 800):
             return "☀️";
 
-        // Clouds
-        case (weatherId >= 801 && weatherId <= 804):
+        // Few Clouds
+        case (weatherId === 801):
+            return "🌤️";
+
+        // Scattered Clouds
+        case (weatherId === 802):
+            return "⛅";
+
+        // Broken Clouds
+        case (weatherId === 803):
+            return "🌥️";
+
+        // Overcast Clouds
+        case (weatherId === 804):
             return "☁️";
 
-        // Unknown
         default:
             return "❓";
     }
